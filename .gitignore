@@ -339,6 +339,3 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-
-# Mock CDN content
-*/Tests/Greentube.RGS.Services.Cdn.TestCdn/Bundles/*
