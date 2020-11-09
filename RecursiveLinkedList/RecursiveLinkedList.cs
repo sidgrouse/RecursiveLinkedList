@@ -10,8 +10,6 @@ namespace RecursiveLinkedList
     /// <typeparam name="T">The type of stored elemetns.</typeparam>
     public class RecursiveLinkedList<T>
     {
-        internal bool IsEmpty => Tail == null;
-
         private T _head;
 
         public RecursiveLinkedList()
@@ -23,6 +21,8 @@ namespace RecursiveLinkedList
             _head = head;
             Tail = tail;
         }
+
+        public bool IsEmpty => Tail == null;
 
         public T Head => IsEmpty ? throw new InvalidOperationException("The list is empty") : _head;
 
@@ -57,7 +57,7 @@ namespace RecursiveLinkedList
 
         public override string ToString()
         {
-            return IsEmpty ? "---" : Head.ToString();
+            return IsEmpty ? string.Empty : Head.ToString();
         }
     }
 }
