@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace RecursiveLinkedList
 {
@@ -30,6 +32,32 @@ namespace RecursiveLinkedList
         {
             Tail = new RecursiveLinkedList<T>(_head, Tail);
             _head = newHead;
+        }
+
+        public void RemoveHead()
+        {
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("There is no head to be removed. The list is empty");
+            }
+
+            _head = Tail._head;
+            Tail = Tail.Tail;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            var pointerHead = this;
+            while (!pointerHead.IsEmpty)
+            {
+                yield return pointerHead.Head;
+                pointerHead = pointerHead.Tail;
+            }
+        }
+
+        public override string ToString()
+        {
+            return IsEmpty ? "---" : Head.ToString();
         }
     }
 }
